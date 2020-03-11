@@ -1,0 +1,12 @@
+.container {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffb6c1;
+    min-width: 100%;  
+}
+
+.cardContainer {
+    padding-left: 30%;
+    padding-top: 200px;
+    text-align: center;
+}
