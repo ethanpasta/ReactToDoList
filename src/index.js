@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import ToDoList from './components/ToDoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-render(<App />, document.getElementById('root'));
+render(<ToDoList />, document.getElementById('root'));

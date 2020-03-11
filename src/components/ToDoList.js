@@ -1,10 +1,10 @@
 import React from 'react';
-import ToDoInput from './ToDoInput';
-import ToDoOutput from './ToDoOutput';
+import UserInput from './UserInput';
+import ListResults from './ListResults';
 import { Card, Button } from 'react-bootstrap';
 import '../styles/Main.css';
 
-class App extends React.Component {
+class ToDoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,6 +13,10 @@ class App extends React.Component {
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
     handleButtonClick(newInput) {
+        if (this.state.items.indexOf(newInput) != -1) {
+            this.setState({ errorMsg: "This task exists already!" });
+            return;
+        }
         this.setState((prevState) => ({
             items: [...prevState.items, newInput]
         }));
@@ -21,13 +25,13 @@ class App extends React.Component {
         return (
             <div className="container">
                 <div className="cardContainer">
-                    <Card style={{ width: '60%' }}>
+                    <Card bg="light" style={{ width: '60%' }}>
                         <Card.Header className="text-center">To Do List</Card.Header>
-                        <Card.Body>
+                        <Card.Body className="text-center">
                             <Card.Text className="text-center">What do you need to add to your list?</Card.Text>
                             <br />
-                            <ToDoInput callback={this.handleButtonClick} />
-                            <ToDoOutput tasks={this.state.items} />
+                            <UserInput callback={this.handleButtonClick} />
+                            <ListResults tasks={this.state.items} />
                         </Card.Body>
                     </Card>
                 </div>
@@ -36,4 +40,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default ToDoList;

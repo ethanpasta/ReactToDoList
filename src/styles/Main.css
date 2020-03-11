@@ -8,5 +8,8 @@
 .cardContainer {
     padding-left: 30%;
     padding-top: 200px;
-    text-align: center;
+}
+
+.listResults {
+    padding-top: 30px;
 }
