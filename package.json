@@ -1,0 +1,32 @@
+{
+  "name": "react-base-template",
+  "version": "1.0.0",
+  "description": "![react-logo](https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-512.png)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanpasta/ReactBaseTemplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanpasta/ReactBaseTemplate/issues"
+  },
+  "homepage": "https://github.com/ethanpasta/ReactBaseTemplate#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1"
+  }
+}
