@@ -11,7 +11,7 @@ const UserInput = (props) => {
     const appear = useSpring({ opacity: 0, opacity: 1 });
     const formSubmit = (e) => {
         e.preventDefault();
-        if (props.tasks.indexOf(input) != -1) {
+        if (props.tasks[input] != undefined) {
             setAlert({ msg: "This task already exists!", variant: "warning" });
             return;
         }
@@ -22,7 +22,7 @@ const UserInput = (props) => {
         const timer = setTimeout(() => {
             setAlert({ msg: '', variant: '' });
         }, 1000);
-    }, [alert.msg != '']);
+    }, [alert.msg]);
     return (
         <div>
             <Form onSubmit={formSubmit}>

@@ -1,13 +1,15 @@
 import React from 'react';
+import Task from './Task';
+import '../styles/Main.css';
 
-const ListResults = ({ tasks }) => {
+const ListResults = ({ tasks, taskComplete }) => {
     return (
         <div>
             <hr />
             <div className="listResults">
                 {
-                    tasks.map(task => (
-                        <div className="task" key={task}>{task}</div>
+                    Object.keys(tasks).map((task, idx) => (
+                        <Task key={task} label={task} onCheckboxClick={taskComplete} />
                     ))
                 }
             </div>
