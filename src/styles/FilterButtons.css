@@ -1,0 +1,18 @@
+.filterButtonCont {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.filterButton {
+    padding: 5px 10px;
+    background: none;
+    border: 2px solid #ffe3ed;
+    border-radius: 0.3em;
+    transition: all 0.2s;
+}
+
+.filterButton:hover {
+    background-color: #ffe3ed;
+}
+

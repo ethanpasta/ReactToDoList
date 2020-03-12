@@ -1,8 +1,9 @@
 import React from 'react';
 import UserInput from './UserInput';
 import ListResults from './ListResults';
-import { Card, Button } from 'react-bootstrap';
-import '../styles/Main.scss';
+import FilterButtons from './FilterButtons';
+import '../styles/Base.scss';
+import '../styles/Card.scss'
 
 class ToDoList extends React.Component {
     constructor(props) {
@@ -33,15 +34,16 @@ class ToDoList extends React.Component {
     render() {
         return (
             <div className="container">
-                <Card style={{ width: '40%' }}>
-                    <Card.Header className="text-center">To Do List</Card.Header>
-                    <Card.Body className="text-center">
-                        <Card.Text className="text-center">What do you need to add to your list?</Card.Text>
+                <div className="card">
+                    <div className="cardHeader">To Do List</div>
+                    <div className="cardBody">
+                        <div className="subtitle">What do you need to get done today?</div>
                         <br />
                         <UserInput callback={this.handleButtonClick} tasks={this.state.items} />
                         <ListResults tasks={this.state.items} taskComplete={this.handleTaskComplete} />
-                    </Card.Body>
-                </Card>
+                        {(Object.keys(this.state.items).length > 0) && <FilterButtons />}
+                    </div>
+                </div>
             </div>
         )
     }
