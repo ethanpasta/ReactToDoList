@@ -1,38 +1,43 @@
-import React from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Form, Button, Row, Col, Alert } from 'react-bootstrap';
 
-class UserInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            input: ""
+const UserInput = (props) => {
+    const [input, setInput] = useState("");
+    const [errMsg, setErrMsg] = useState("");
+    const formSubmit = (e) => {
+        e.preventDefault();
+        if (props.tasks.indexOf(input) != -1) {
+            setErrMsg("This task already exists!");
+            return;
         }
+        setErrMsg("");
+        props.callback(input);
     }
-    render() {
-        return (
-            <Form onSubmit={(e) => {
-                e.preventDefault();
-                this.props.callback(this.state.input);
-            }}>
+    return (
+        <div>
+            <Form onSubmit={formSubmit}>
                 <Row>
                     <Col sm={9}>
                         <Form.Control
                             placeholder="item to add"
-                            onChange={(e) => this.setState({ input: e.target.value })}
+                            onChange={e => setInput(e.target.value)}
                         />
                     </Col>
                     <Col>
                         <Button
                             variant="outline-info"
                             type="submit"
-                            disabled={this.state.input.length ? false : true}>
-                            Submit
-                        </Button>
+                            disabled={input.length ? false : true}>
+                            Add
+                </Button>
                     </Col>
                 </Row>
             </Form>
-        )
-    }
+            <br />
+            {errMsg && <Alert variant='danger'>{errMsg}</Alert>}
+        </div>
+    )
 }
+
 
 export default UserInput;

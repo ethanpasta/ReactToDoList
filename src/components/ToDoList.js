@@ -8,13 +8,12 @@ class ToDoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: []
+            items: [],
         }
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
     handleButtonClick(newInput) {
         if (this.state.items.indexOf(newInput) != -1) {
-            this.setState({ errorMsg: "This task exists already!" });
             return;
         }
         this.setState((prevState) => ({
@@ -30,7 +29,7 @@ class ToDoList extends React.Component {
                         <Card.Body className="text-center">
                             <Card.Text className="text-center">What do you need to add to your list?</Card.Text>
                             <br />
-                            <UserInput callback={this.handleButtonClick} />
+                            <UserInput callback={this.handleButtonClick} tasks={this.state.items} />
                             <ListResults tasks={this.state.items} />
                         </Card.Body>
                     </Card>

@@ -4,7 +4,7 @@ const ListResults = ({ tasks }) => {
     return (
         <div>
             <hr />
-            <div class="listResults">
+            <div className="listResults">
                 {
                     tasks.map(task => (
                         <p key={task}>{task}</p>
