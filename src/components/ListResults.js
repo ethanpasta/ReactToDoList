@@ -7,7 +7,7 @@ const ListResults = ({ tasks }) => {
             <div className="listResults">
                 {
                     tasks.map(task => (
-                        <p key={task}>{task}</p>
+                        <div className="task" key={task}>{task}</div>
                     ))
                 }
             </div>

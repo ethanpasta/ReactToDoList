@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Row, Col, Alert } from 'react-bootstrap';
+import { useSpring, animated } from 'react-spring';
 
 const UserInput = (props) => {
     const [input, setInput] = useState("");
-    const [errMsg, setErrMsg] = useState("");
+    const [alert, setAlert] = useState({
+        msg: '',
+        variant: ''
+    });
+    const appear = useSpring({ opacity: 0, opacity: 1 });
     const formSubmit = (e) => {
         e.preventDefault();
         if (props.tasks.indexOf(input) != -1) {
-            setErrMsg("This task already exists!");
+            setAlert({ msg: "This task already exists!", variant: "warning" });
             return;
         }
-        setErrMsg("");
+        setAlert({ msg: "Added!", variant: "success" });
         props.callback(input);
     }
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setAlert({ msg: '', variant: '' });
+        }, 1000);
+    }, [alert.msg != '']);
     return (
         <div>
             <Form onSubmit={formSubmit}>
@@ -34,8 +44,13 @@ const UserInput = (props) => {
                 </Row>
             </Form>
             <br />
-            {errMsg && <Alert variant='danger'>{errMsg}</Alert>}
-        </div>
+            {
+                <animated.div style={appear}>
+                    <Alert style={{ display: 'inline' }} variant={alert.variant}>
+                        {alert.msg}</Alert>
+                </animated.div>
+            }
+        </div >
     )
 }
 
