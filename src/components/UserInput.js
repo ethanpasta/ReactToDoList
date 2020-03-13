@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SVGIcons from './SVGIcons';
 
 const UserInput = (props) => {
     const [input, setInput] = useState("");
@@ -8,28 +9,28 @@ const UserInput = (props) => {
         variant: '',
         show: false
     });
-    const appear = useSpring({ opacity: alert.show ? 1 : 0 });
-    const formSubmit = (e) => {
+    const [buttonClick, setButtonClick] = useState(false);
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         if (props.tasks[input] != undefined) {
             setAlert({ show: true, msg: "This task already exists!", variant: "warning" });
             return;
         }
+        setButtonClick(true);
         setAlert({ show: true, msg: "Added!", variant: "success" });
+        setTimeout(() => setInput(""), 1000);
         props.callback(input);
     }
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setAlert({ show: false });
-        }, 1000);
-    }, [alert.msg]);
+        setButtonClick(false);
+    }, [buttonClick])
     return (
         <div>
-            <form onSubmit={formSubmit} className="inputForm">
+            <form onSubmit={handleFormSubmit} className="inputForm">
                 <input
-                    placeholder="item to add"
+                    className="inputText"
                     onChange={e => setInput(e.target.value)}
-                    className="inputBox"
+                    value={input}
                 />
                 <button
                     variant="outline-info"
@@ -37,16 +38,9 @@ const UserInput = (props) => {
                     disabled={input.length ? false : true}
                     className="inputButton"
                 >
-                    Add
+                    <SVGIcons buttonState={buttonClick} />
                 </button>
             </form>
-            <br />
-            {
-                <animated.div style={appear}>
-                    <div style={{ display: 'inline' }} variant={alert.variant}>
-                        {alert.msg}</div>
-                </animated.div>
-            }
         </div >
     )
 }

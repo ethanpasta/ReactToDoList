@@ -21,10 +21,15 @@
   },
   "homepage": "https://github.com/ethanpasta/ReactBaseTemplate#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-spring": "^8.0.27"
+    "react-spring": "^8.0.27",
+    "snapsvg": "^0.5.1",
+    "snapsvg-cjs": "0.0.6"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",

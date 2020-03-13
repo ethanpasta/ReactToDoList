@@ -5,7 +5,6 @@ import '../styles/Input.scss';
 const ListResults = ({ tasks, taskComplete }) => {
     return (
         <div>
-            <hr />
             <div className="listResults">
                 {
                     Object.keys(tasks).map((task, idx) => (

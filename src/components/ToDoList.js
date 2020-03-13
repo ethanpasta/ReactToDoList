@@ -3,7 +3,7 @@ import UserInput from './UserInput';
 import ListResults from './ListResults';
 import FilterButtons from './FilterButtons';
 import '../styles/Base.scss';
-import '../styles/Card.scss'
+import '../styles/Card.scss';
 
 class ToDoList extends React.Component {
     constructor(props) {
