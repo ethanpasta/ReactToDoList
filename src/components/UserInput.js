@@ -2,23 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SVGIcons from './SVGIcons';
 
-const UserInput = (props) => {
+const UserInput = ({ dispatch, tasks }) => {
+
     const [input, setInput] = useState({
         txt: "",
         isDenied: false
     });
+
     const [isClicked, setisClicked] = useState(false);
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setisClicked(true);
-        setTimeout(() => setInput(({ txt, isDenied }) => ({
-            txt: "", isDenied: false
-        })), 600);
-        props.handleButtonClick(input.txt);
+        setTimeout(() => setInput({ txt: "", isDenied: false }), 600);
+        dispatch({ type: 'add', taskTxt: input.txt });
     }
+
     useEffect(() => {
         setisClicked(false);
-    }, [isClicked])
+    }, [isClicked]);
+
     return (
         <div>
             <form onSubmit={handleFormSubmit} className="inputForm">
@@ -28,7 +31,7 @@ const UserInput = (props) => {
                         e.persist();
                         setInput(({ txt, isDenied }) => ({
                             txt: e.target.value,
-                            isDenied: (e.target.value.length && (props.tasks[e.target.value] != undefined)) ? true : false
+                            isDenied: (e.target.value.length && (tasks[e.target.value] != undefined)) ? true : false
                         }))
                     }}
                     value={input.txt}

@@ -26,7 +26,6 @@ const SVGIcons = ({ isClicked, isDenied }) => {
         }
     }, []);
     useEffect(() => {
-        console.log(isClicked, isDenied);
         const t = transform.current;
         if (t.first) {
             t.first = false;
@@ -34,17 +33,14 @@ const SVGIcons = ({ isClicked, isDenied }) => {
         }
         t.icon.attr({ filter: t.goo });
         if (!isDenied && !isClicked && !t.wasClicked) {
-            console.log("1");
             // Transform to plus from denied
             t.wasClicked = false;
             t.icon.animate({ d: t.plusPath }, 300, mina.backout, () => t.icon.attr({ filter: null }));
         } else if (isDenied) {
-            console.log("2");
             // Transform to deny from plus
             t.wasClicked = false;
             t.icon.animate({ d: t.denyPath }, 300, mina.backout, () => t.icon.attr({ filter: null }));
         } else {
-            console.log("3");
             // Transform to check and back to plus after submit
             t.wasClicked = true;
             t.icon.animate({ d: t.checkPath }, 300, mina.backout, () => {

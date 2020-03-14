@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/FilterButtons.css';
 
-const FilterButtons = ({ }) => {
+const FilterButtons = ({ dispatch }) => {
     return (
         <div>
             <hr />
             <div className="filterButtonCont">
-                <button className="filterButton" data-action="checkAll">Check All</button>
-                <button className="filterButton" data-action="removeChecked">Remove Checked Items</button>
+                <button className="filterButton" onClick={() => dispatch({ type: 'checkAll' })}>Check All</button>
+                <button className="filterButton" onClick={() => dispatch({ type: 'removeCompleted' })}>Remove Completed Tasks</button>
             </div>
         </div>
 
