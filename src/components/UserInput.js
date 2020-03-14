@@ -3,42 +3,43 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SVGIcons from './SVGIcons';
 
 const UserInput = (props) => {
-    const [input, setInput] = useState("");
-    const [alert, setAlert] = useState({
-        msg: '',
-        variant: '',
-        show: false
+    const [input, setInput] = useState({
+        txt: "",
+        isDenied: false
     });
-    const [buttonClick, setButtonClick] = useState(false);
+    const [isClicked, setisClicked] = useState(false);
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        if (props.tasks[input] != undefined) {
-            setAlert({ show: true, msg: "This task already exists!", variant: "warning" });
-            return;
-        }
-        setButtonClick(true);
-        setAlert({ show: true, msg: "Added!", variant: "success" });
-        setTimeout(() => setInput(""), 1000);
-        props.callback(input);
+        setisClicked(true);
+        setTimeout(() => setInput(({ txt, isDenied }) => ({
+            txt: "", isDenied: false
+        })), 600);
+        props.callback(input.txt);
     }
     useEffect(() => {
-        setButtonClick(false);
-    }, [buttonClick])
+        setisClicked(false);
+    }, [isClicked])
     return (
         <div>
             <form onSubmit={handleFormSubmit} className="inputForm">
                 <input
                     className="inputText"
-                    onChange={e => setInput(e.target.value)}
-                    value={input}
+                    onChange={e => {
+                        e.persist();
+                        setInput(({ txt, isDenied }) => ({
+                            txt: e.target.value,
+                            isDenied: (e.target.value.length && (props.tasks[e.target.value] != undefined)) ? true : false
+                        }))
+                    }}
+                    value={input.txt}
                 />
                 <button
                     variant="outline-info"
                     type="submit"
-                    disabled={input.length ? false : true}
-                    className="inputButton"
+                    disabled={(input.isDenied || !input.txt.length) ? true : false}
+                    className={input.isDenied ? 'inputButton inputDenied' : 'inputButton'}
                 >
-                    <SVGIcons buttonState={buttonClick} />
+                    <SVGIcons isClicked={isClicked} isDenied={input.isDenied} />
                 </button>
             </form>
         </div >

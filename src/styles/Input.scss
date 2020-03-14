@@ -21,7 +21,6 @@
 
 .inputText:focus {
     outline: none;
-
 }
 
 button {
@@ -37,15 +36,18 @@ button {
     width: 1em;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
-    color: green;
+    color: #00a651;
     position: relative;
     margin-left: -30px;
-    transition: transform 0.2s ease-in;
+    transition: color 0.3s ease-in-out;
 }
 
-.inputButton:disabled {
-    position: relative;
+.inputButton:disabled:not(.inputDenied) {
     color: grey;
+}
+
+.inputDenied {
+    color:#cd2028;
 }
 
 
