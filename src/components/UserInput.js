@@ -14,7 +14,7 @@ const UserInput = (props) => {
         setTimeout(() => setInput(({ txt, isDenied }) => ({
             txt: "", isDenied: false
         })), 600);
-        props.callback(input.txt);
+        props.handleButtonClick(input.txt);
     }
     useEffect(() => {
         setisClicked(false);

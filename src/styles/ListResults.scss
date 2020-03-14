@@ -8,6 +8,13 @@ $white: #fff;
 $green: #06842c;
 
 
+.listResults {
+    padding: 15px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
 * {
   box-sizing: border-box;
   &::before, &::after {
@@ -28,8 +35,8 @@ $green: #06842c;
 }
 
 input[type="checkbox"] {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   color: $black;
   border: 1px solid $gray;
   border-radius: 4px;
@@ -43,13 +50,13 @@ input[type="checkbox"] {
     position: relative;
     content: '';
     display: block;
-    top: 2px;
-    left: 7px;
-    width: 8px;
-    height: 14px;
+    left: 4px;
+    text-align: center;
+    width: 0.4em;
+    height: 0.8em;
     border-style: solid;
     border-color: $white;
-    border-width: 0 2px 2px 0;
+    border-width: 0px 2px 2px 0px;
     transform: rotate(45deg);
     opacity: 0;
   }
@@ -66,7 +73,7 @@ input[type="checkbox"] {
 }
 
 .taskLabel {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   padding: 0 0.5em 0;
   margin: 0;

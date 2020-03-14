@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from './Task';
 import '../styles/Input.scss';
+import '../styles/ListResults.scss';
 
 const ListResults = ({ tasks, taskComplete }) => {
     return (

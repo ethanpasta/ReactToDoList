@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/TaskItem.scss';
 
 const Task = ({ isChecked, onCheckboxClick, label }) => {
     return (
