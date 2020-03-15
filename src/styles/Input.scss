@@ -1,18 +1,17 @@
-@import "_variables.scss";
-
 .inputForm {
     margin-top: 40px;
     display: flex;
     justify-content: center;
+    flex-flow: row wrap;
     align-items: center;
 }
 
 .inputText {
+    color: rgba(46, 46, 46, 1);
     width: 80%;
     height: 2em;
     background: none;
     border: none;
-    border-bottom: 1px solid black;
     padding-left: 10px;
     padding-right: 40px;
     font-size: 25px;
@@ -21,6 +20,24 @@
 
 .inputText:focus {
     outline: none;
+}
+
+.cool-line.animate-green {
+    background-position: right bottom;
+}
+
+.cool-line.animate-red {
+    background-position: left bottom;
+}
+
+.cool-line {
+    transition: background-position 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    background: linear-gradient(to left,rgba(0,166,81, 1) 33.334%, rgba(46, 46, 46, 0.3) 33.334%, rgba(46, 46, 46, 0.3) 66.667%, #cd2028 66.667%, #cd2028);
+    background-size: 300% 100%;
+    background-position: center bottom;
+    margin-top: -14px;
+    height: 2px;
+    width: 80%;
 }
 
 button {

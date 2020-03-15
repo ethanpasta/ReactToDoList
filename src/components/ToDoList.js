@@ -2,8 +2,6 @@ import React, { useState, useReducer } from 'react';
 import UserInput from './UserInput';
 import ListResults from './ListResults';
 import FilterButtons from './FilterButtons';
-import '../styles/Base.scss';
-import '../styles/Card.scss';
 
 function reducer(state, action) {
     return {

@@ -5,7 +5,7 @@ const Task = ({ isChecked, dispatch, label }) => {
         dispatch({ type: 'taskComplete', taskTxt: label });
     }
     return (
-        <div className="taskItem">
+        <div className={"taskItem" + (isChecked ? " taskClicked" : "")}>
             <input
                 type="checkbox"
                 name={label}

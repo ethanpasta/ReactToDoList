@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SVGIcons from './SVGIcons';
 
@@ -10,11 +10,19 @@ const UserInput = ({ dispatch, tasks }) => {
     });
 
     const [isClicked, setisClicked] = useState(false);
+    const animate = useRef({
+        green: false,
+        red: false
+    });
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setisClicked(true);
-        setTimeout(() => setInput({ txt: "", isDenied: false }), 600);
+        animate.current.green = true;
+        setTimeout(() => {
+            animate.current.green = false;
+            setInput({ txt: "", isDenied: false });
+        }, 600);
         dispatch({ type: 'add', taskTxt: input.txt });
     }
 
@@ -29,10 +37,16 @@ const UserInput = ({ dispatch, tasks }) => {
                     className="inputText"
                     onChange={e => {
                         e.persist();
-                        setInput(({ txt, isDenied }) => ({
-                            txt: e.target.value,
-                            isDenied: (e.target.value.length && (tasks[e.target.value] != undefined)) ? true : false
-                        }))
+                        console.log("changin");
+                        setInput(({ txt, isDenied }) => {
+                            let deniedTmp = tasks[e.target.value] != undefined;
+                            animate.current.red = deniedTmp;
+                            return {
+                                txt: e.target.value,
+                                isDenied: deniedTmp
+                            }
+                        });
+
                     }}
                     value={input.txt}
                 />
@@ -44,6 +58,8 @@ const UserInput = ({ dispatch, tasks }) => {
                 >
                     <SVGIcons isClicked={isClicked} isDenied={input.isDenied} />
                 </button>
+                <span className={"cool-line" + (animate.current.green ? " animate-green" : "") + (animate.current.red ? " animate-red" : "")} />
+
             </form>
         </div >
     )
