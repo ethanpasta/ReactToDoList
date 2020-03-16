@@ -7,7 +7,7 @@
 }
 
 .inputText {
-    color: rgba(46, 46, 46, 1);
+    color: $font-color;
     width: 80%;
     height: 2em;
     background: none;
@@ -32,7 +32,7 @@
 
 .cool-line {
     transition: background-position 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    background: linear-gradient(to left,rgba(0,166,81, 1) 33.334%, rgba(46, 46, 46, 0.3) 33.334%, rgba(46, 46, 46, 0.3) 66.667%, #cd2028 66.667%, #cd2028);
+    background: linear-gradient(to left,rgba(0,166,81, 1) 33.334%, $line-input-color 33.334%, $line-input-color 66.667%, #cd2028 66.667%, #cd2028);
     background-size: 300% 100%;
     background-position: center bottom;
     margin-top: -14px;
@@ -53,14 +53,14 @@ button {
     width: 1em;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
-    color: #00a651;
+    color: $glow-green;
     position: relative;
     margin-left: -30px;
     transition: color 0.3s ease-in-out;
 }
 
 .inputButton:disabled:not(.inputDenied) {
-    color: grey;
+    color: $line-input-color;
 }
 
 .inputDenied {

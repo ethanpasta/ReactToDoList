@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .container {
@@ -8,12 +9,99 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 100%;  
-    background: rgb(64,224,208);
-    background: -moz-linear-gradient(90deg, rgba(64,224,208,1) 14%, rgba(99,58,130,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(64,224,208,1) 14%, rgba(99,58,130,1) 100%);
-    background: linear-gradient(90deg, rgba(64,224,208,1) 14%, rgba(99,58,130,1) 100%);
+    min-width: 100%; 
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: url(https://wallpaperplay.com/walls/full/c/3/0/104425.jpg) no-repeat;
+	/* Keep the inherited background full size. */
+	background-attachment: fixed; 
+  background-size: cover;
 }
+
+.background {
+    
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+@function multiple-box-shadow ($n) {
+  $value: '#{random(3000)}px #{random(3000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(3000)}px #{random(3000)}px  #FFF';
+  }
+  @return unquote($value);
+}
+
+$shadows-small:  multiple-box-shadow(1000);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(100);
+    
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadows-small;
+  animation: animStar 20s linear infinite;
+
+}
+    
+#stars2 {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: $shadows-medium;
+  animation: animStar 70s linear infinite;
+
+}
+    
+#stars3 {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: $shadows-big;
+  animation: animStar 100s linear infinite;
+
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {		
+      transform: translateY(-2000px);
+    }
+  }
+
+/* #title
+  position: absolute
+  top: 50%
+  left: 0
+  right: 0
+  
+  color: #FFF
+  text-align: center
+  font-family: 'lato',sans-serif
+  font-weight: 300
+  font-size: 50px
+  letter-spacing: 10px
+  
+  margin-top: -60px
+  padding-left: 10px
+  
+  span
+    background: -webkit-linear-gradient(white, #38495a)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent */
+    
+
+    
 
 
 

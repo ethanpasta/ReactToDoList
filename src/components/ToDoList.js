@@ -6,36 +6,49 @@ import FilterButtons from './FilterButtons';
 function reducer(state, action) {
     return {
         add: () => ({
-            ...state,
-            [action.taskTxt]: false
+            items: {
+                ...state.items,
+                [action.taskTxt]: false
+            },
+            checkAll: state.checkAll
         }),
         taskComplete: () => ({
-            ...state,
-            [action.taskTxt]: !state[action.taskTxt]
+            items: {
+                ...state.items,
+                [action.taskTxt]: !state[action.taskTxt]
+            },
+            checkAll: state.checkAll
         }),
-        checkAll: () => (Object.assign({}, ...Object.keys(state).map(task => ({ [task]: true })))),
-        removeCompleted: () => (Object.assign({}, ...Object.keys(state).filter(task => !state[task]).map(key => ({ [key]: state[key] }))))
+        checkAll: () => ({
+            items: Object.assign({}, ...Object.keys(state.items).map(task => ({ [task]: state.checkAll }))),
+            checkAll: !state.checkAll
+        }),
+        removeCompleted: () => ({
+            items: (Object.assign({}, ...Object.keys(state.items).filter(task => !state.items[task]).map(key => ({ [key]: state.items[key] })))),
+            checkAll: state.checkAll
+        })
     }[action.type]();
 }
 
 const ToDoList = () => {
-    const [items, dispatch] = useReducer(reducer, {});
+    const [state, dispatch] = useReducer(reducer, {
+        items: {},
+        checkAll: true
+    });
 
     return (
-        <div className="container">
-            <div className="card">
-                <div className="cardHeader">To Do List</div>
-                <div className="cardBody">
-                    <div className="subtitle">What do you need to get done today?</div>
-                    <br />
-                    <UserInput dispatch={dispatch} tasks={items} />
-                    <ListResults tasks={items} dispatch={dispatch} />
-                    {(Object.keys(items).length > 0) && <FilterButtons dispatch={dispatch} />}
-                </div>
+        <div className="card">
+            <div className="cardHeader">TO DO LIST</div>
+            <div className="cardBody">
+                <br />
+                <div className="subtitle">What do you need to get done today?</div>
+                <br />
+                <UserInput dispatch={dispatch} tasks={state.items} />
+                <ListResults tasks={state.items} dispatch={dispatch} />
+                {(Object.keys(state.items).length > 0) && <FilterButtons dispatch={dispatch} />}
             </div>
         </div>
     )
-
 }
 
 export default ToDoList;

@@ -1,7 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Source+Sans+Pro:300,400|Raleway:300,500&display=swap');
 
-$header-font: 'Ubuntu', sans-serif;;
+$header-font: 'Raleway', sans-serif;
 $task-font: 'Source Sans Pro', sans-serif;
-$font-color: #4f5b66;
-$input-border: #FFCE3C;
+$font-color: rgb(239, 255, 251);
+$line-input-color: rgba(239, 255, 251, 0.6);
+$glow-green: #14b23f;
+$header-gradient: #deff8b;
+$task-border-gradient: linear-gradient(to right, #78ffd6, #007991) 1;
+$task-color: rgb(102,133,134);
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
 
