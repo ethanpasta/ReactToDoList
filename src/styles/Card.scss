@@ -23,6 +23,12 @@
     }
 }
 
+@include middle-screen {
+    .card {
+        width: 50%;
+    }
+}
+
   
 
 .card:before {

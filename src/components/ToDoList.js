@@ -15,7 +15,7 @@ function reducer(state, action) {
         taskComplete: () => ({
             items: {
                 ...state.items,
-                [action.taskTxt]: !state[action.taskTxt]
+                [action.taskTxt]: !state.items[action.taskTxt]
             },
             checkAll: state.checkAll
         }),
@@ -32,7 +32,7 @@ function reducer(state, action) {
 
 const ToDoList = () => {
     const [state, dispatch] = useReducer(reducer, {
-        items: {},
+        items: { hi: false },
         checkAll: true
     });
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu|Source+Sans+Pro:300,400|Raleway:300,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Source+Sans+Pro:400,600|Raleway:300,500&display=swap');
 
 $header-font: 'Raleway', sans-serif;
 $task-font: 'Source Sans Pro', sans-serif;
@@ -7,20 +7,40 @@ $line-input-color: rgba(239, 255, 251, 0.6);
 $glow-green: #14b23f;
 $header-gradient: #deff8b;
 $task-border-gradient: linear-gradient(to right, #78ffd6, #007991) 1;
-$task-color: rgb(102,133,134);
+$task-color: rgb(23,130,115);
+$garbage-color: rgb(192,192,192);
+
+$black: #363839;
+$lightgray: #9c9e9f;
+$gray: #bdc1c6;
+$white: #fff;
+$green: #06842c;
 
 $tablet-width: 768px;
-$desktop-width: 1024px;
+$desktop-width: 1280px;
+$middle-width: 1024px;
 
 @mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$middle-width - 1px}) {
     @content;
   }
 }
 
-@mixin mobile {
-    @media (max-width: #{$tablet-width - 1px}) {
-        @content;
-    }
+@mixin middle-screen {
+  @media (min-width: #{$middle-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
 }
 
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin not-desktop {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}

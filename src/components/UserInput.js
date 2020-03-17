@@ -39,7 +39,8 @@ const UserInput = ({ dispatch, tasks }) => {
                         e.persist();
                         console.log("changin");
                         setInput(({ txt, isDenied }) => {
-                            let deniedTmp = tasks[e.target.value] != undefined;
+                            let newTxt = e.target.value;
+                            let deniedTmp = (tasks[newTxt] != undefined) || (newTxt.length && !newTxt.trim().length);
                             animate.current.red = deniedTmp;
                             return {
                                 txt: e.target.value,

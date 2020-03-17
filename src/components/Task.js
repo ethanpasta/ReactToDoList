@@ -14,7 +14,9 @@ const Task = ({ isChecked, dispatch, label }) => {
                 id={label}
                 value={label}
             />
-            <label className="taskLabel" htmlFor="todo" data-content={label}>{label}</label>
+            <div className="taskLabelContain">
+                <span className="taskLabel" htmlFor="todo">{label}</span>
+            </div>
         </div>
     )
 }
