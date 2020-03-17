@@ -5,17 +5,19 @@ const Task = ({ isChecked, dispatch, label }) => {
         dispatch({ type: 'taskComplete', taskTxt: label });
     }
     return (
-        <div className={"taskItem" + (isChecked ? " taskClicked" : "")}>
+        <div
+            className={"taskItem" + (isChecked ? " taskClicked" : "")}
+            onClick={handleCheckClick}
+        >
             <input
                 type="checkbox"
                 name={label}
-                onChange={handleCheckClick}
                 className={isChecked ? 'clicked' : null}
                 id={label}
                 value={label}
             />
             <div className="taskLabelContain">
-                <span className="taskLabel" htmlFor="todo">{label}</span>
+                <span className="taskLabel">{label}</span>
             </div>
         </div>
     )

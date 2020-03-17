@@ -20,6 +20,13 @@
     }
 }
 
+@mixin button-preset {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    border: 0;
+}
+
 .buttonOneSquare {
     @include background-square;
     left: -50px;
@@ -30,16 +37,34 @@
     right: -50px;
 }
 
-.filterButtonOne {
+.buttonTwoClicker {
+    // Remove default button appearance
+    @include button-preset;
+    right: 0;
     cursor: pointer;
-    line-height: 0;
-    background: none;
-    width: 2.8em;
-    height: auto;
-    position: absolute;
-    bottom: 5px;
-    left: 4px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include desktop {
+        &:hover .filterButtonTwo {
+            path:nth-child(2) {
+                transition: all 0.3s ease-out;
+                transform: rotate(15deg) translateY(-20px);
+                transform-origin: 100% 50%;
+            }
+        }
+    }
+    // Tap on touch screens (not desktop) instead of hover
+    &:active .filterButtonTwo {
+        path:nth-child(2) {
+            transition: all 0.05s ease-out;
+            transform: rotate(15deg) translateY(-30px);
+            transform-origin: 100% 50%;
+        }
+    }
+}
+
+.buttonOneClicker {
+    @include button-preset;
+    left: 0;
+    cursor: pointer;
     @include desktop {
         &:hover .checkmark {
             color: $green;
@@ -53,6 +78,20 @@
         color: $green;
         transform: scale(1.1);
     }
+}
+
+
+
+.filterButtonOne {
+    cursor: pointer;
+    line-height: 0;
+    background: none;
+    width: 2.8em;
+    height: auto;
+    position: absolute;
+    bottom: 5px;
+    left: 4px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     .checkmark {
         transition: all 0.1s ease-out;
     }
@@ -85,23 +124,6 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     path:nth-child(2) {
         transition: all 0.3s ease-out;
-    }
-    @include desktop {
-        &:hover{
-            path:nth-child(2) {
-                transition: all 0.3s ease-out;
-                transform: rotate(15deg) translateY(-20px);
-                transform-origin: 100% 50%;
-            }
-        }
-    }
-    
-    &:active {
-        path:nth-child(2) {
-            transition: all 0.05s ease-out;
-            transform: rotate(15deg) translateY(-30px);
-            transform-origin: 100% 50%;
-        }
     }
 }
 
