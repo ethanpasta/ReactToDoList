@@ -32,7 +32,7 @@ function reducer(state, action) {
 
 const ToDoList = () => {
     const [state, dispatch] = useReducer(reducer, {
-        items: { hi: false },
+        items: {},
         checkAll: true
     });
 

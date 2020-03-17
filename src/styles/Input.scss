@@ -16,6 +16,9 @@
     padding-right: 40px;
     font-size: 25px;
     font-family: $header-font;
+    @include mobile {
+        width: 100%;
+    }
 }
 
 .inputText:focus {
@@ -38,6 +41,9 @@
     margin-top: -14px;
     height: 2px;
     width: 80%;
+    @include mobile {
+        width: 100%;
+    }
 }
 
 button {
@@ -56,14 +62,18 @@ button {
     color: $glow-green;
     position: relative;
     margin-left: -30px;
-    transition: color 0.3s ease-in-out;
-}
-
-.inputButton:disabled:not(.inputDenied) {
-    color: $line-input-color;
+    transition: all 0.15s ease-out;
+    &:not([disabled]):hover {
+        transform: scale(1.1);
+    }
+    &:disabled:not(.inputDenied) {
+        cursor: default;
+        color: $line-input-color;
+    }
 }
 
 .inputDenied {
+    cursor: default;
     color:#cd2028;
 }
 

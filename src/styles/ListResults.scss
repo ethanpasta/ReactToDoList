@@ -4,6 +4,9 @@
     padding-bottom: 30px;
     display: flex;
     flex-flow: row wrap;
+    @include mobile {
+      padding: 15px 0 30px;
+    }
 }
 
 
@@ -81,7 +84,7 @@ input[type="checkbox"] {
 }
 
 .taskLabel {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
   margin: 0;
   color: $task-color;

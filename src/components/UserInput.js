@@ -3,18 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SVGIcons from './SVGIcons';
 
 const UserInput = ({ dispatch, tasks }) => {
-
     const [input, setInput] = useState({
         txt: "",
         isDenied: false
     });
-
     const [isClicked, setisClicked] = useState(false);
     const animate = useRef({
         green: false,
         red: false
     });
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         setisClicked(true);
@@ -25,11 +22,9 @@ const UserInput = ({ dispatch, tasks }) => {
         }, 600);
         dispatch({ type: 'add', taskTxt: input.txt });
     }
-
     useEffect(() => {
         setisClicked(false);
     }, [isClicked]);
-
     return (
         <div>
             <form onSubmit={handleFormSubmit} className="inputForm">

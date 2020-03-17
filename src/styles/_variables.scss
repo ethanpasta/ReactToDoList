@@ -9,6 +9,8 @@ $header-gradient: #deff8b;
 $task-border-gradient: linear-gradient(to right, #78ffd6, #007991) 1;
 $task-color: rgb(23,130,115);
 $garbage-color: rgb(192,192,192);
+$font-size-regular: 18px;
+$font-size-mobile: 14px;
 
 $black: #363839;
 $lightgray: #9c9e9f;
@@ -22,6 +24,12 @@ $middle-width: 1024px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$middle-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
     @content;
   }
 }
