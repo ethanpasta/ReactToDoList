@@ -2,7 +2,14 @@
     "name": "react-dope-to-do",
     "version": "1.0.0",
     "description": "Dope To-Do List in React!",
+    "author": "Eitan Mayer",
     "main": "index.js",
+    "license": "wtfpl",
+    "homepage": "https://github.com/ethanpasta/dope-react-todo-list#readme",
+    "engines": {
+        "npm": ">=6.12.0",
+        "node": ">=10.16.3"
+    },
     "scripts": {
         "dev": "parcel src/index.html",
         "build": "parcel build src/index.html",
@@ -11,12 +18,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ethanpasta/ReactToDoList.git"
+        "url": "git+https://github.com/ethanpasta/dope-react-todo-list.git"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "homepage": "https://github.com/ethanpasta/ReactBaseTemplate#readme",
     "dependencies": {
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
