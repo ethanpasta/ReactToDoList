@@ -17,7 +17,6 @@ const FilterButtons = ({ dispatch }) => {
 
             <button className="buttonTwoClicker" onClick={() => dispatch({ type: 'removeCompleted' })}>
                 <div className="buttonTwoSquare"></div>
-                {/* <div className="garbageTitle">Remove Completed</div> */}
                 <a className="filterButtons filterButtonTwo">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +27,8 @@ const FilterButtons = ({ dispatch }) => {
                     </svg>
                 </a>
             </button>
-
         </React.Fragment>
-
-    )
-}
+    );
+};
 
 export default FilterButtons;

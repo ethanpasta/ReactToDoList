@@ -4,6 +4,7 @@ import "../styles/bundle.scss";
 
 const App = () => {
     useEffect(() => {
+        // Adjust window height to always be 100% (fixes mobile issues)
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     }, []);
@@ -15,9 +16,9 @@ const App = () => {
                 <div id='stars3'></div>
             </div>
             <ToDoList />
+            <div className="copyright">Copyright <a href="http://eitanmayer.com" target="_blank">Eitan Mayer</a> &copy;</div>
         </div>
-
-    )
-}
+    );
+};
 
 export default App;

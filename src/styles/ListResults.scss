@@ -26,6 +26,7 @@
   border-radius: 4px;
   flex-basis: auto;
   margin: 0.5em;
+  // Change task item appearance if checked
   &.taskClicked {
     transition: background-color 0.2s ease-out;
     background-color: rgba(253, 255, 252, 0.2);
@@ -60,12 +61,14 @@ input[type="checkbox"] {
     transform: rotate(45deg);
     opacity: 0;
   }
+  // Change checkbox appearance if checked
   &.clicked {
     border-color: $green;
     background: $green;
     &::before {
       opacity: 1;
     }
+    // Adding "strikethrough" animation when checked
     + div .taskLabel {
       font-weight: 600;
       color: white;

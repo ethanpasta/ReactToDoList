@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SVGIcons from './SVGIcons';
 
 const UserInput = ({ dispatch, tasks }) => {
@@ -32,10 +31,7 @@ const UserInput = ({ dispatch, tasks }) => {
         // Add new item to base state
         dispatch({ type: 'add', taskTxt: input.txt });
     }
-    const updateClickedState = () => {
-        setisClicked(false);
-    }
-    // This resets 
+    // This resets the click in order to reset the svg animation
     useEffect(() => {
         setisClicked(false);
     }, [isClicked]);
@@ -48,8 +44,8 @@ const UserInput = ({ dispatch, tasks }) => {
                     onChange={e => {
                         e.persist();
                         let newTxt = e.target.value.trim();
-                        // Text is denied if it already exists, or if it has a length and it's only spaces
-                        let deniedTmp = (tasks[newTxt] != undefined) || (e.target.value.length && !newTxt.length);
+                        // Text is denied if it already exists, or if it has a length and it's only spaces, or if more than 100 characters
+                        let deniedTmp = (tasks[newTxt] != undefined) || (e.target.value.length && !newTxt.length) || newTxt.length > 100;
                         animate.current.red = deniedTmp;
                         // Only set input if text is not disabled
                         !input.isTypingDisabled && setInput({ txt: e.target.value, isDenied: deniedTmp, isTypingDisabled: false });
@@ -62,16 +58,14 @@ const UserInput = ({ dispatch, tasks }) => {
                     // Disable button if text is denied (exists in tasks), or if no text was entered
                     disabled={(input.isDenied || !input.txt.length) ? true : false}
                     // Different classes to change color of button based on its state
-                    className={input.isDenied ? 'inputButton inputDenied' : 'inputButton'}
+                    className={input.isDenied ? "inputButton inputDenied" : "inputButton"}
                 >
                     <SVGIcons isEmpty={input.txt.length == 0} isClicked={isClicked} isDenied={input.isDenied} />
                 </button>
                 <span className={"cool-line" + (animate.current.green ? " animate-green" : "") + (animate.current.red ? " animate-red" : "")} />
-
             </form>
         </div >
-    )
-}
-
+    );
+};
 
 export default UserInput;

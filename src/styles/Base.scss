@@ -16,6 +16,35 @@ body {
   background-size: cover;
 }
 
+.copyright {
+  width: 100%;
+  bottom: 1.5em;
+  letter-spacing: 1px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(239, 255, 251, 0.8);
+  font-size: 0.6em;
+  font-family: $task-font;
+  a {
+    background: linear-gradient(to bottom, rgb(255,152,0) 0%, rgb(255,152,0) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    padding-bottom: 0.35em;
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: 0 100%;
+    padding-bottom: 0.4em;
+    background-size: auto 5px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+  }
+}
+
 .background {
   position: absolute;
   top: 0;
@@ -24,6 +53,7 @@ body {
   width: 100%;
 }
 
+// Randomize star locations over page
 @function multiple-box-shadow ($n) {
   $value: '#{random(3000)}px #{random(3000)}px #FFF';
   @for $i from 2 through $n {
@@ -62,11 +92,12 @@ $shadows-big:    multiple-box-shadow(100);
   animation: animStar 100s linear infinite;
 }
 
+// Star animations from bottom to top
 @keyframes animStar {
-    from {
-        transform: translateY(0px);
-    }
-    to {		
-      transform: translateY(-2000px);
-    }
+  from {
+      transform: translateY(0px);
   }
+  to {		
+    transform: translateY(-2000px);
+  }
+}

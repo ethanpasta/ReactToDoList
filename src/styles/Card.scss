@@ -23,6 +23,7 @@
     }
 }
 
+// Card "frosty" effect
 .card:before {
     content: "";
     position: absolute;
@@ -54,4 +55,52 @@
     font-size: 1.2em;
     font-weight: 300;
     text-align: center;
+}
+
+// Only display easter egg on desktop
+.easterEgg {
+    display: none;
+}
+
+@include desktop {
+    .easterEgg {
+        display: inline;
+        position: relative;
+        top: -6px;
+        font-size: 0.43em;
+        cursor: pointer;
+        .tooltiptext {
+            font-family: $header-font;
+            opacity: 0;
+            font-weight: 300;
+            transition: all 0.3s;
+            visibility: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $font-color;
+            min-width: 100px;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: -23px;
+            left: 18px;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 100%;
+                margin-top: -5px;
+                border-width: 6px;
+                border-style: solid;
+                border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+            }
+        }
+        &:hover {
+            .tooltiptext {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
 }

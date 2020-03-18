@@ -7,6 +7,7 @@
     border: none;
 }
 
+// Mixin for corner circles (started from square therefore name didn't change)
 @mixin background-square {
     width: 100px;
     height: 100px;
@@ -15,6 +16,7 @@
     bottom: -50px;
     border-radius: 50%;
     z-index: -1;
+    // Adjust color on mobile since background position changes
     @include not-desktop {
         background-color: rgba(255, 255, 255, 0.15);
     }
@@ -38,7 +40,6 @@
 }
 
 .buttonTwoClicker {
-    // Remove default button appearance
     @include button-preset;
     right: 0;
     cursor: pointer;
@@ -74,6 +75,7 @@
             transform: scale(0.7);
         }
     }
+    // Tap on touch screens (not desktop) instead of hover
     &:active .checkmark {
         color: $green;
         transform: scale(1.1);
@@ -118,18 +120,8 @@
     bottom: 5px;
     right: -3px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    // Animate garbage lid
     path:nth-child(2) {
         transition: all 0.3s ease-out;
     }
-}
-
-.garbageTitle {
-    font-size: 10px;
-    font-family: $task-font;
-    position: absolute;
-    color: $line-input-color;
-    bottom: 8px;
-    left: 0;
-    transform: rotate(-90deg);
-    transform-origin: bottom left;
 }
