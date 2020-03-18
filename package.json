@@ -1,7 +1,7 @@
 {
-  "name": "react-base-template",
+  "name": "react-dope-to-do",
   "version": "1.0.0",
-  "description": "![react-logo](https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-512.png)",
+  "description": "Dope To-Do List in React!",
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
