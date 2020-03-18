@@ -1,15 +1,15 @@
 <h1 align="center">Dope To Do List with React 💫</h1>
 <p>
-  <img src="https://img.shields.io/badge/npm-%3E%3D6.12.0-blue.svg" />
-  <img src="https://img.shields.io/badge/node-%3E%3D10.16.3-blue.svg" />
+  <a href="https://www.npmjs.com/get-npm" target="_blank"><img src="https://img.shields.io/badge/npm-%3E%3D6.12.0-blue.svg" /></a>
+  <a href="https://nodejs.org/en/download/" target="_blank"><img src="https://img.shields.io/badge/node-%3E%3D10.16.3-blue.svg" /></a>
   <a href="https://twitter.com/eitanmayer57" target="_blank">
     <img alt="Twitter: eitanmayer57" src="https://img.shields.io/twitter/follow/eitanmayer57.svg?style=social" />
   </a>
 </p>
 
-### ✨ Live Here - [dopetodo.wtf](http://dopetodo.wtf)
+### ✨ Live Version - [dopetodo.wtf](https://dopetodo.wtf)
 
-While being quarantined due to COVID-19, I decided to tackle a classic project **_'React To Do List'_**. Or in my case, **_'React To Do List with manually crafted SVG animations, local storage implementation, mobile compatibility, `Sass`, microinteractions, and hooks utilization'_**.
+While being quarantined due to COVID-19, I decided to take on a classic project **_'React To Do List'_**. Or in my case, **_'React To Do List with manually crafted SVG animations, local storage implementation, mobile compatibility, `Sass`, microinteractions, and React hooks utilization'_**.
 
 ![Project Screenshot](src/static/imgs/project-screenshot.png)
 
