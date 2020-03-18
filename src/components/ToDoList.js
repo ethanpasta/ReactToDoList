@@ -1,11 +1,11 @@
-import React, { useState, useReducer, useEffect } from 'react';
-import UserInput from './UserInput';
-import ListResults from './ListResults';
-import FilterButtons from './FilterButtons';
+import React, { useState, useReducer, useEffect } from "react";
+import UserInput from "./UserInput";
+import ListResults from "./ListResults";
+import FilterButtons from "./FilterButtons";
 
 /**
  * Reducer functions - defines different actions and how they effect the state (list of tasks)
- * 
+ *
  * @param {Object} state The previous state
  * @param {String} action The action to execute
  */
@@ -30,12 +30,22 @@ function reducer(state, action) {
         },
         // checks all tasks as complete
         checkAll: () => ({
-            items: Object.assign({}, ...Object.keys(state.items).map(task => ({ [task]: state.checkAll }))),
+            items: Object.assign(
+                {},
+                ...Object.keys(state.items).map(task => ({
+                    [task]: state.checkAll
+                }))
+            ),
             checkAll: !state.checkAll
         }),
         // removes all completed tasks
         removeCompleted: () => ({
-            items: (Object.assign({}, ...Object.keys(state.items).filter(task => !state.items[task]).map(key => ({ [key]: state.items[key] })))),
+            items: Object.assign(
+                {},
+                ...Object.keys(state.items)
+                    .filter(task => !state.items[task])
+                    .map(key => ({ [key]: state.items[key] }))
+            ),
             checkAll: state.checkAll
         })
     }[action.type]();
@@ -44,12 +54,12 @@ function reducer(state, action) {
 const ToDoList = () => {
     const [state, dispatch] = useReducer(reducer, {
         // If any tasks exist in the localStorage, use them
-        items: JSON.parse(localStorage.getItem('items')) || {},
+        items: JSON.parse(localStorage.getItem("items")) || {},
         checkAll: true
     });
     // Save automatically to the localStorage if the state changes
     useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(state.items));
+        localStorage.setItem("items", JSON.stringify(state.items));
     }, [state.items]);
     return (
         <div className="card">
@@ -58,13 +68,24 @@ const ToDoList = () => {
                 <br />
                 <div className="subtitle">
                     What do you need to get done today?
-                    <span className="easterEgg"> *<span className="tooltiptext">All animations were manually crafted.<br />How many can you find?</span></span>
+                    <span className="easterEgg">
+                        {" "}
+                        *
+                        <span className="tooltiptext">
+                            All animations were manually crafted.
+                            <br />
+                            How many can you find?
+                            <img src="../static/imgs/emoji.png"></img>
+                        </span>
+                    </span>
                 </div>
                 <br />
                 <UserInput dispatch={dispatch} tasks={state.items} />
                 <ListResults tasks={state.items} dispatch={dispatch} />
                 {/* Display the filter buttons only if any tasks exist */}
-                {(Object.keys(state.items).length > 0) && <FilterButtons dispatch={dispatch} />}
+                {Object.keys(state.items).length > 0 && (
+                    <FilterButtons dispatch={dispatch} />
+                )}
             </div>
         </div>
     );

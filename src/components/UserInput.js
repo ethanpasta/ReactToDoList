@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import SVGIcons from './SVGIcons';
+import React, { useState, useEffect, useRef } from "react";
+import SVGIcons from "./SVGIcons";
 
 const UserInput = ({ dispatch, tasks }) => {
     const [input, setInput] = useState({
@@ -14,12 +14,12 @@ const UserInput = ({ dispatch, tasks }) => {
         green: false,
         red: false
     });
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = e => {
         e.preventDefault();
         // Trigger new svg animation
         setisClicked(true);
         // Temporary disable input until its reset (600 ms)
-        setInput((input) => ({ ...input, isTypingDisabled: true }));
+        setInput(input => ({ ...input, isTypingDisabled: true }));
         // Trigger border slide to "passed"
         animate.current.green = true;
         setTimeout(() => {
@@ -29,8 +29,8 @@ const UserInput = ({ dispatch, tasks }) => {
             setisClicked(false);
         }, 600);
         // Add new item to base state
-        dispatch({ type: 'add', taskTxt: input.txt });
-    }
+        dispatch({ type: "add", taskTxt: input.txt });
+    };
     // This resets the click in order to reset the svg animation
     useEffect(() => {
         setisClicked(false);
@@ -45,10 +45,18 @@ const UserInput = ({ dispatch, tasks }) => {
                         e.persist();
                         let newTxt = e.target.value.trim();
                         // Text is denied if it already exists, or if it has a length and it's only spaces, or if more than 100 characters
-                        let deniedTmp = (tasks[newTxt] != undefined) || (e.target.value.length && !newTxt.length) || newTxt.length > 100;
+                        let deniedTmp =
+                            tasks[newTxt] != undefined ||
+                            (e.target.value.length && !newTxt.length) ||
+                            newTxt.length > 100;
                         animate.current.red = deniedTmp;
                         // Only set input if text is not disabled
-                        !input.isTypingDisabled && setInput({ txt: e.target.value, isDenied: deniedTmp, isTypingDisabled: false });
+                        !input.isTypingDisabled &&
+                            setInput({
+                                txt: e.target.value,
+                                isDenied: deniedTmp,
+                                isTypingDisabled: false
+                            });
                     }}
                     value={input.txt}
                 />
@@ -56,15 +64,30 @@ const UserInput = ({ dispatch, tasks }) => {
                     variant="outline-info"
                     type="submit"
                     // Disable button if text is denied (exists in tasks), or if no text was entered
-                    disabled={(input.isDenied || !input.txt.length) ? true : false}
+                    disabled={
+                        input.isDenied || !input.txt.length ? true : false
+                    }
                     // Different classes to change color of button based on its state
-                    className={input.isDenied ? "inputButton inputDenied" : "inputButton"}
-                >
-                    <SVGIcons isEmpty={input.txt.length == 0} isClicked={isClicked} isDenied={input.isDenied} />
+                    className={
+                        input.isDenied
+                            ? "inputButton inputDenied"
+                            : "inputButton"
+                    }>
+                    <SVGIcons
+                        isEmpty={input.txt.length == 0}
+                        isClicked={isClicked}
+                        isDenied={input.isDenied}
+                    />
                 </button>
-                <span className={"cool-line" + (animate.current.green ? " animate-green" : "") + (animate.current.red ? " animate-red" : "")} />
+                <span
+                    className={
+                        "cool-line" +
+                        (animate.current.green ? " animate-green" : "") +
+                        (animate.current.red ? " animate-red" : "")
+                    }
+                />
             </form>
-        </div >
+        </div>
     );
 };
 

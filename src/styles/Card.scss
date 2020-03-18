@@ -10,14 +10,17 @@
     z-index: 1;
     overflow: hidden;
     font-size: $font-size-regular;
+
     @include tablet {
         width: 60%;
         min-height: 60%;
     }
+
     @include mobile {
         width: 80%;
         font-size: $font-size-mobile;
     }
+
     @include middle-screen {
         width: 50%;
     }
@@ -69,6 +72,7 @@
         top: -6px;
         font-size: 0.43em;
         cursor: pointer;
+
         .tooltiptext {
             font-family: $header-font;
             opacity: 0;
@@ -85,6 +89,7 @@
             z-index: 1;
             top: -23px;
             left: 18px;
+
             &::after {
                 content: "";
                 position: absolute;
@@ -96,6 +101,7 @@
                 border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
             }
         }
+
         &:hover {
             .tooltiptext {
                 opacity: 1;

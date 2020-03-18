@@ -16,6 +16,7 @@
     bottom: -50px;
     border-radius: 50%;
     z-index: -1;
+
     // Adjust color on mobile since background position changes
     @include not-desktop {
         background-color: rgba(255, 255, 255, 0.15);
@@ -32,7 +33,7 @@
 .buttonOneSquare {
     @include background-square;
     left: -50px;
-} 
+}
 
 .buttonTwoSquare {
     @include background-square;
@@ -43,6 +44,7 @@
     @include button-preset;
     right: 0;
     cursor: pointer;
+
     @include desktop {
         &:hover .filterButtonTwo {
             path:nth-child(2) {
@@ -52,6 +54,7 @@
             }
         }
     }
+
     // Tap on touch screens (not desktop) instead of hover
     &:active .filterButtonTwo {
         path:nth-child(2) {
@@ -66,15 +69,18 @@
     @include button-preset;
     left: 0;
     cursor: pointer;
+
     @include desktop {
         &:hover .checkmark {
             color: $green;
         }
+
         &:hover .squareBorder {
             opacity: 1;
             transform: scale(0.7);
         }
     }
+
     // Tap on touch screens (not desktop) instead of hover
     &:active .checkmark {
         color: $green;
@@ -92,9 +98,11 @@
     bottom: 5px;
     left: 4px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     .checkmark {
         transition: all 0.1s ease-out;
     }
+
     .squareBorder {
         transition: all 0.1s ease-out;
         opacity: 0;
@@ -120,6 +128,7 @@
     bottom: 5px;
     right: -3px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     // Animate garbage lid
     path:nth-child(2) {
         transition: all 0.3s ease-out;

@@ -16,9 +16,11 @@
     padding-right: 40px;
     font-size: 25px;
     font-family: $header-font;
+
     &:focus {
         outline: none;
     }
+
     // Change input box width on mobile
     @include mobile {
         width: 100%;
@@ -35,12 +37,13 @@
 
 .cool-line {
     transition: background-position 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    background: linear-gradient(to left,rgba(0,166,81, 1) 33.3334%, $line-input-color 33.3334%, $line-input-color 66.667%, #cd2028 66.6667%, #cd2028);
+    background: linear-gradient(to left, rgba(0, 166, 81, 1) 33.3334%, $line-input-color 33.3334%, $line-input-color 66.667%, #cd2028 66.6667%, #cd2028);
     background-size: 300% 100%;
     background-position: center bottom;
     margin-top: -14px;
     height: 2px;
     width: 80%;
+
     @include mobile {
         width: 100%;
     }
@@ -63,10 +66,12 @@ button {
     position: relative;
     margin-left: -30px;
     transition: all 0.15s ease-out;
+
     // Button is hovered and not disabled (green plus)
     &:not([disabled]):hover {
         transform: scale(1.1);
     }
+
     // Button is disabled and not denied (input is empty)
     &:disabled:not(.inputDenied) {
         cursor: default;
@@ -76,7 +81,5 @@ button {
 
 .inputDenied {
     cursor: default;
-    color:#cd2028;
+    color: #cd2028;
 }
-
-

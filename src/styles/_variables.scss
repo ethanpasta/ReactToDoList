@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Source+Sans+Pro:300,400,600|Raleway:300,500|Oswald:wght@700&display=swap');
 
-$header-font: 'Raleway', sans-serif;
-$task-font: 'Source Sans Pro', sans-serif;
+$header-font: 'Raleway',
+sans-serif;
+$task-font: 'Source Sans Pro',
+sans-serif;
 $font-color: rgb(239, 255, 251);
 $line-input-color: rgba(239, 255, 251, 0.6);
 $glow-green: #14b23f;
 $header-gradient: #deff8b;
 $task-border-gradient: linear-gradient(to right, #78ffd6, #007991) 1;
-$task-color: rgb(23,130,115);
-$garbage-color: rgb(192,192,192);
+$task-color: rgb(23, 130, 115);
+$garbage-color: rgb(192, 192, 192);
 $font-size-regular: 18px;
 $font-size-mobile: 15px;
 

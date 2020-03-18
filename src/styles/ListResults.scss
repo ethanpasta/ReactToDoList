@@ -1,16 +1,19 @@
 .listResults {
-    padding: 15px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-flow: row wrap;
-    @include mobile {
-      padding: 15px 0 30px;
-    }
+  padding: 15px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-flow: row wrap;
+
+  @include mobile {
+    padding: 15px 0 30px;
+  }
 }
 
 * {
   box-sizing: border-box;
-  &::before, &::after {
+
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }
@@ -26,6 +29,7 @@
   border-radius: 4px;
   flex-basis: auto;
   margin: 0.5em;
+
   // Change task item appearance if checked
   &.taskClicked {
     transition: background-color 0.2s ease-out;
@@ -42,11 +46,14 @@ input[type="checkbox"] {
   border: 1px solid $task-color;
   border-radius: 4px;
   appearance: none;
-  -moz-appearance: none; /* Hide dropdown in Firefox */
-  -webkit-appearance: none; /* Hide dropdown in Chrome */
+  -moz-appearance: none;
+  /* Hide dropdown in Firefox */
+  -webkit-appearance: none;
+  /* Hide dropdown in Chrome */
   outline: 0;
   cursor: pointer;
   transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+
   &::before {
     position: relative;
     content: '';
@@ -61,15 +68,18 @@ input[type="checkbox"] {
     transform: rotate(45deg);
     opacity: 0;
   }
+
   // Change checkbox appearance if checked
   &.clicked {
     border-color: $green;
     background: $green;
+
     &::before {
       opacity: 1;
     }
+
     // Adding "strikethrough" animation when checked
-    + div .taskLabel {
+    +div .taskLabel {
       font-weight: 600;
       color: white;
       background-size: 100% 3px;

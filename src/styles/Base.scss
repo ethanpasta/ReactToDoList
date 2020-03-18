@@ -10,9 +10,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 30px 0;
-  min-width: 100%; 
+  min-width: 100%;
   background: url("../static/imgs/background-color.jpg") no-repeat;
-	background-attachment: fixed; 
+  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -26,8 +26,9 @@ body {
   color: rgba(239, 255, 251, 0.8);
   font-size: 0.6em;
   font-family: $task-font;
+
   a {
-    background: linear-gradient(to bottom, rgb(255,152,0) 0%, rgb(255,152,0) 100%);
+    background: linear-gradient(to bottom, rgb(255, 152, 0) 0%, rgb(255, 152, 0) 100%);
     background-position: 0 100%;
     background-repeat: repeat-x;
     background-size: 2px 2px;
@@ -35,6 +36,7 @@ body {
     color: inherit;
     text-decoration: none;
   }
+
   a:hover {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
     background-position: 0 100%;
@@ -56,16 +58,18 @@ body {
 // Randomize star locations over page
 @function multiple-box-shadow ($n) {
   $value: '#{random(3000)}px #{random(3000)}px #FFF';
+
   @for $i from 2 through $n {
     $value: '#{$value} , #{random(3000)}px #{random(3000)}px  #FFF';
   }
+
   @return unquote($value);
 }
 
-$shadows-small:  multiple-box-shadow(700);
+$shadows-small: multiple-box-shadow(700);
 $shadows-medium: multiple-box-shadow(200);
-$shadows-big:    multiple-box-shadow(100);
-    
+$shadows-big: multiple-box-shadow(100);
+
 #stars {
   width: 1px;
   height: 1px;
@@ -73,7 +77,7 @@ $shadows-big:    multiple-box-shadow(100);
   box-shadow: $shadows-small;
   animation: animStar 20s linear infinite;
 }
-    
+
 #stars2 {
   width: 2px;
   height: 2px;
@@ -82,7 +86,7 @@ $shadows-big:    multiple-box-shadow(100);
   box-shadow: $shadows-medium;
   animation: animStar 70s linear infinite;
 }
-    
+
 #stars3 {
   width: 3px;
   height: 3px;
@@ -95,9 +99,10 @@ $shadows-big:    multiple-box-shadow(100);
 // Star animations from bottom to top
 @keyframes animStar {
   from {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
-  to {		
+
+  to {
     transform: translateY(-2000px);
   }
 }
