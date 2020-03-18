@@ -74,8 +74,8 @@ const ToDoList = () => {
                         <span className="tooltiptext">
                             All animations were manually crafted.
                             <br />
-                            How many can you find?
-                            <img src="../static/imgs/emoji.png"></img>
+                            How many can you find?{"  "}
+                            <div class="emojiImg"></div>
                         </span>
                     </span>
                 </div>

@@ -17,11 +17,10 @@ const App = () => {
             </div>
             <ToDoList />
             <div className="copyright">
-                Copyright{" "}
+                2020 Copyright &copy;{" "}
                 <a href="http://eitanmayer.com" target="_blank">
                     Eitan Mayer
-                </a>{" "}
-                &copy;
+                </a>
             </div>
         </div>
     );

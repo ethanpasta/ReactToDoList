@@ -100,6 +100,16 @@
                 border-style: solid;
                 border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
             }
+
+            .emojiImg {
+                display: inline-block;
+                background-image: url("../static/imgs/emoji.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 15px;
+                height: 15px;
+                vertical-align: middle;
+            }
         }
 
         &:hover {
