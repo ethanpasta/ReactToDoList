@@ -23,10 +23,6 @@
     }
 }
 
-
-
-  
-
 .card:before {
     content: "";
     position: absolute;
@@ -45,18 +41,17 @@
     font-family: $header-font;
     font-weight: 300;
     font-size: 60px;
-    letter-spacing: 10px;
+    letter-spacing: 0.1em;
     text-align: center;
     background: -webkit-linear-gradient(#044363, #2ffdf0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    
 }
 
 .subtitle {
     font-family: $task-font;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 300;
     text-align: center;
 }

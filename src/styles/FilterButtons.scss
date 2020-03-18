@@ -80,13 +80,11 @@
     }
 }
 
-
-
 .filterButtonOne {
     cursor: pointer;
     line-height: 0;
     background: none;
-    width: 2.8em;
+    width: 38px;
     height: auto;
     position: absolute;
     bottom: 5px;
@@ -98,8 +96,8 @@
     .squareBorder {
         transition: all 0.1s ease-out;
         opacity: 0;
-        width: 2.4em;
-        height: 2.4em;
+        width: 32px;
+        height: 32px;
         border: 2px solid $garbage-color;
         background-color: rgba(0, 0, 0, 0);
         border-radius: 6px;
@@ -110,13 +108,11 @@
     }
 }
 
-
-
 .filterButtonTwo {
     cursor: pointer;
     line-height: 0;
     background: none;
-    width: 2.8em;
+    width: 38px;
     height: auto;
     position: absolute;
     bottom: 5px;
@@ -126,7 +122,6 @@
         transition: all 0.3s ease-out;
     }
 }
-
 
 .garbageTitle {
     font-size: 10px;
@@ -138,5 +133,3 @@
     transform: rotate(-90deg);
     transform-origin: bottom left;
 }
-
-

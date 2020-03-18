@@ -42,7 +42,6 @@ $shadows-big:    multiple-box-shadow(100);
   background: transparent;
   box-shadow: $shadows-small;
   animation: animStar 20s linear infinite;
-
 }
     
 #stars2 {
@@ -52,7 +51,6 @@ $shadows-big:    multiple-box-shadow(100);
   background: transparent;
   box-shadow: $shadows-medium;
   animation: animStar 70s linear infinite;
-
 }
     
 #stars3 {
@@ -62,7 +60,6 @@ $shadows-big:    multiple-box-shadow(100);
   background: transparent;
   box-shadow: $shadows-big;
   animation: animStar 100s linear infinite;
-
 }
 
 @keyframes animStar {
@@ -73,7 +70,3 @@ $shadows-big:    multiple-box-shadow(100);
       transform: translateY(-2000px);
     }
   }
-    
-
-
-

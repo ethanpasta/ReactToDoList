@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import UserInput from './UserInput';
 import ListResults from './ListResults';
 import FilterButtons from './FilterButtons';
@@ -12,13 +12,14 @@ function reducer(state, action) {
             },
             checkAll: state.checkAll
         }),
-        taskComplete: () => ({
-            items: {
-                ...state.items,
-                [action.taskTxt]: !state.items[action.taskTxt]
-            },
-            checkAll: state.checkAll
-        }),
+        taskComplete: () => {
+            let tmp = Object.assign({}, state.items);
+            tmp[action.taskTxt] = !tmp[action.taskTxt];
+            return {
+                items: tmp,
+                checkAll: state.checkAll
+            };
+        },
         checkAll: () => ({
             items: Object.assign({}, ...Object.keys(state.items).map(task => ({ [task]: state.checkAll }))),
             checkAll: !state.checkAll
@@ -32,10 +33,12 @@ function reducer(state, action) {
 
 const ToDoList = () => {
     const [state, dispatch] = useReducer(reducer, {
-        items: {},
+        items: JSON.parse(localStorage.getItem('items')) || {},
         checkAll: true
     });
-
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(state.items));
+    }, [state.items]);
     return (
         <div className="card">
             <div className="cardHeader">TO DO LIST</div>
