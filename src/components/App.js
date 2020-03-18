@@ -18,9 +18,18 @@ const App = () => {
             <ToDoList />
             <div className="copyright">
                 2020 Copyright &copy;{" "}
-                <a href="http://eitanmayer.com" target="_blank">
+                <a
+                    href="http://eitanmayer.com"
+                    target="_blank"
+                    className="myName">
                     Eitan Mayer
                 </a>
+                {" | "}
+                <a
+                    className="github-logo"
+                    href="https://github.com/ethanpasta/dope-react-todo-list/"
+                    target="_blank"
+                />
             </div>
         </div>
     );
