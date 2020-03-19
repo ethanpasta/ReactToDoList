@@ -75,7 +75,7 @@ const ToDoList = () => {
                             All animations were manually crafted.
                             <br />
                             How many can you find?{"  "}
-                            <div class="emojiImg"></div>
+                            <div className="emojiImg"></div>
                         </span>
                     </span>
                 </div>

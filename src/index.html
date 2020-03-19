@@ -1,28 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dope React To-Do List</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161203883-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../public/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../public/favicon-32x32.png"
+            sizes="32x32"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../public/favicon-16x16.png"
+            sizes="16x16"
+        />
+        <link
+            rel="mask-icon"
+            href="../public/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+        <meta name="description" content="A Dope React To-Do List" />
 
-        gtag('config', 'UA-161203883-1');
-    </script>
+        <title>Dope React To-Do List</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-161203883-1"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-</head>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-<body ontouchstart>
-    <div id="root"></div>
-    <script src="index.js"></script>
-</body>
+            gtag("config", "UA-161203883-1");
+        </script>
+    </head>
 
+    <body ontouchstart>
+        <div id="root"></div>
+        <script src="index.js"></script>
+    </body>
 </html>
