@@ -74,6 +74,7 @@
         cursor: pointer;
 
         .tooltiptext {
+            cursor: default;
             font-family: $header-font;
             opacity: 0;
             font-weight: 300;
