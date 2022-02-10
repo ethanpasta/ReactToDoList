@@ -22,7 +22,7 @@
     },
     "keywords": [],
     "dependencies": {
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "snapsvg-cjs": "0.0.6"
